@@ -158,7 +158,7 @@ export default function PrintableSheet({ data }) {
               <tbody>
                 {data.diets.map((d, i) => (
                   <tr key={i}>
-                    <td>{d.sno}</td>
+                    <td className="center-cell">{d.sno}</td>
                     <td className="center-cell">{d.diet}</td>
                     <td className="center-cell">{d.weeks}</td>
                   </tr>

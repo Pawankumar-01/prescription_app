@@ -1,3 +1,25 @@
+const SUPPLEMENT_LIST = [
+  "",
+  "DTOX",
+  "APD",
+  "BIOTIN",
+  "MIGRANONE",
+  "ATHEROLYZIN-G",
+  "IMUMODULIN-G",
+  "Omega 3"
+];
+
+const QUANTITY_LIST = [
+  "",
+  "1/4",
+  "1/2",
+  "3/4",
+  "1",
+  "1 1/2",
+  "2"
+];
+
+
 export default function PrescriptionForm({ data, setData, onPrint }) {
   const update = (key, value) =>
     setData(prev => ({ ...prev, [key]: value }));
@@ -8,6 +30,7 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
     else copy[row].weeks[col] = value;
     update("supplements", copy);
   };
+  
 
   return (
     <div className="doctor-ui">
@@ -18,6 +41,7 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
           <div className="section-title">Patient Details</div>
 
           <div className="field-grid">
+
             <input
               placeholder="Patient Name"
               value={data.patientName}
@@ -37,11 +61,38 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
             />
 
             <input
+              type="date"
               placeholder="Consulted Date"
               value={data.consultedDate}
               onChange={e => update("consultedDate", e.target.value)}
             />
+
+            
+            <input
+              placeholder="Follow Up Doctor Name"
+              value={data.followUpDoctor}
+              onChange={e => update("followUpDoctor", e.target.value)}
+            />
+
+            
+            <input
+              placeholder="Phone Number"
+              value={data.phone}
+              onChange={e => update("phone", e.target.value)}
+            />
+
+            
+            <select
+              value={data.reviewAfter}
+              onChange={e => update("reviewAfter", e.target.value)}
+            >
+              <option value="">Review After</option>
+              <option value="1 Month">1 Month</option>
+              <option value="2 Months">2 Months</option>
+            </select>
+
           </div>
+
         </div>
 
         {/* ================= SUPPLEMENTS ================= */}
@@ -59,35 +110,48 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
                   ))}
                 </tr>
               </thead>
+
               <tbody>
                 {data.supplements.map((row, r) => (
                   <tr key={r}>
                     <td>{row.sno}</td>
+
+                    {/* 🔽 SUPPLEMENT NAME DROPDOWN */}
                     <td>
                       <input
                         value={row.name}
                         onChange={e =>
                           updateSupplement(r, "name", e.target.value)
                         }
+                        placeholder="Supplement"
                       />
                     </td>
+
+
+                    {/* 🔽 WEEKLY QUANTITY DROPDOWNS */}
                     {row.weeks.map((w, c) => (
                       <td key={c}>
-                        <input
+                        <select
                           value={w}
                           onChange={e =>
                             updateSupplement(r, c, e.target.value)
                           }
-                        />
+                        >
+                          {QUANTITY_LIST.map((q, i) => (
+                            <option key={i} value={q}>
+                              {q || "-"}
+                            </option>
+                          ))}
+                        </select>
                       </td>
                     ))}
+
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         </div>
-
         {/* ================= DAILY REGIMEN ================= */}
         <div className="form-section">
           <div className="section-title">Daily Regimen</div>
