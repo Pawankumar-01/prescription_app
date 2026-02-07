@@ -131,20 +131,18 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
                     {/* 🔽 WEEKLY QUANTITY DROPDOWNS */}
                     {row.weeks.map((w, c) => (
                       <td key={c}>
-                        <select
+                        <input
+                          type="text"
                           value={w}
+                          placeholder="-"
                           onChange={e =>
                             updateSupplement(r, c, e.target.value)
                           }
-                        >
-                          {QUANTITY_LIST.map((q, i) => (
-                            <option key={i} value={q}>
-                              {q || "-"}
-                            </option>
-                          ))}
-                        </select>
+                          className="week-input"
+                        />
                       </td>
                     ))}
+
 
                   </tr>
                 ))}
