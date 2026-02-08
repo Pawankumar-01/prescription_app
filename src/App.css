@@ -298,9 +298,28 @@
   page-break-before: always;
 }
 
+.print-root .eco-note {
+  bottom: 6mm;
+  left: 10mm;
+  right: 10mm;
+  text-align: center;
+  font-size: 9px;
+  font-style: italic;
+  color: #333;
+  pointer-events: none;
+}
+
+/* ================= PRINT FOOTER (BASE STATE) ================= */
+
+
+
 /* =========================================================
    PRINT RULES
    ========================================================= */
+@page {
+  size: A4;
+  margin: 10mm;
+}
 
 @media print {
   body {
@@ -310,4 +329,25 @@
   .doctor-ui {
     display: none !important;
   }
+
 }
+
+
+
+/* ===== PAGE FOOTER (ECO NOTE) ===== */
+
+.print-root .page-footer {
+  position: absolute;
+  bottom: 6mm;
+  left: 10mm;
+  right: 10mm;
+  text-align: center;
+  font-size: 9px;
+  font-style: italic;
+  color: #333;
+  pointer-events: none;
+}
+
+/* ================= PRINT-ONLY ELEMENTS ================= *
+
+

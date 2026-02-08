@@ -38,7 +38,7 @@ export default function App() {
   otherNote: "",
 
   // Diet table
-  diets: Array.from({ length: 3 }, (_, i) => ({
+  diets: Array.from({ length: 5 }, (_, i) => ({
     sno: i + 1,
     diet: "",
     weeks: ""
