@@ -294,16 +294,41 @@ export default function PrintableSheet({ data }) {
 
           <hr style={{ margin: "4mm 0" }} />
 
-          <ul style={{ margin: "2mm 0", paddingLeft: "16px" }}>
-            <li>Medicines should be taken twice a day</li>
-            <li>Timing: 6:00 AM to 8:00 AM and 6:00 PM to 8:00 PM</li>
-            <li>Give 5–10 mins gap for each supplement</li>
-            <li>Tablet forms can be taken directly with water</li>
-            <li>Avoid CCRSTT foods</li>
-            <li>5 cashew, 5 almonds, soaked groundnuts daily</li>
-            <li>2 liters fennel water daily</li>
-            <li>One type of soup – 2 glasses daily</li>
-          </ul>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1.2fr 1fr",
+              gap: "8mm",
+              alignItems: "start"
+            }}
+          >
+
+            {/* LEFT SIDE — ENGLISH BULLETS */}
+            <ul style={{ margin: "2mm 0", paddingLeft: "16px", fontSize: "10.5px", lineHeight: "1.5" }}>
+              <li>Medicines should be taken twice a day</li>
+              <li>Timing: 6:00 AM to 8:00 AM and 6:00 PM to 8:00 PM</li>
+              <li>Give 5–10 mins gap for each supplement</li>
+              <li>Tablet forms can be taken directly with water</li>
+              <li>Avoid CCRSTT foods</li>
+              <li>5 cashew, 5 almonds, soaked groundnuts daily</li>
+              <li>2 liters fennel water daily</li>
+              <li>One type of soup – 2 glasses daily</li>
+            </ul>
+
+            {/* RIGHT SIDE — DIET REFERENCE */}
+            <div style={{ fontSize: "10px", lineHeight: "1.5" }}>
+              <b>Diet Reference / ఆహార సూచనలు</b>
+
+              <p>Fennel Water – (All diets) / సొంపు నీరు – (అన్ని)</p>
+              <p>Biyyam – (Pitha & Vata) / బియ్యం – (పిత్త & వాత)</p>
+              <p>Barley – (Pitha & Vata) / బార్లీ – (పిత్త & వాత)</p>
+              <p>Saggubiyyam – (Pitha) / సగ్గుబియ్యం – (పిత్త)</p>
+              <p>Jonna – (Kapha / PAD) / జొన్న – (కఫ / PAD)</p>
+              <p>Ragi – (Kapha / PAD) / రాగి – (కఫ / PAD)</p>
+              <p>Cabbage – (Pitha & Vata) / క్యాబేజీ – (పిత్త & వాత)</p>
+            </div>
+
+          </div>
 
           <ul style={{ margin: "2mm 0", paddingLeft: "16px" }}>
             <li>మందులు రోజుకు రెండుసార్లు తీసుకోవాలి</li>
@@ -315,7 +340,7 @@ export default function PrintableSheet({ data }) {
             <li>ప్రతి రోజు 2 లీటర్లు ఫెన్నెల్ వాటర్</li>
             <li>ప్రతి రోజు ఒక రకం సూప్ 2 గ్లాసులు</li>
           </ul>
-
+          <hr />
         </div>
       </div>
 
