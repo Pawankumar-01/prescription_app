@@ -18,21 +18,44 @@ export default function App() {
   phone: "",
 
   // Supplements
-  supplements: Array.from({ length: 10 }, (_, i) => ({
+  supplements: Array.from({ length: 12 }, (_, i) => ({
     sno: i + 1,
     name: "",
+    quantity: "",
     weeks: Array(8).fill("")
   })),
 
-  // Daily regimen
+  // Daily regimen values
   fennelWater: "",
   soups: "",
 
-  // Virechana
+  // Virechana values
   warmWater: "",
   lemon: "",
   blackSalt: "",
   castorOil: "",
+
+  // ✅ NEW — Regimen toggles
+  regimen: {
+  fennelWater: false,
+  soups: false,
+  nutexOil: false,
+  skinOils: false,
+  neelibringadi: false,
+  nithyaVirechana: false,
+  warmWaterLemon: false,
+  blackSalt: false,
+  castorOil: false,
+  prativaaraVirechana: false,
+  anutailam: false,
+  gandusham: false,
+  steam: false,
+  corianderMilk: false,
+  withGinger: false,
+  withoutGinger: false,
+
+},
+
 
   // Other note
   otherNote: "",
@@ -49,6 +72,7 @@ export default function App() {
   allopathyMedicines: "",
   testsToBeDone: ""
 });
+
 
  
   const handlePrint = () => {
