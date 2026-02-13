@@ -226,6 +226,58 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
               />
             )}
           </div>
+          {/* NEWLY ADDED CHECKBOXES (NO INPUT NEEDED) */}
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen?.nutexOil}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: {
+                    ...prev.regimen,
+                    nutexOil: e.target.checked
+                  }
+                }))
+              }
+            />
+            Nutex oil + Chandanadi Thailam - Apply all over body daily
+          </label>
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen?.skinOils}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: {
+                    ...prev.regimen,
+                    skinOils: e.target.checked
+                  }
+                }))
+              }
+            />
+            Skin Oils - On Affected areas, Daily
+          </label>
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen?.neelibringadi}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: {
+                    ...prev.regimen,
+                    neelibringadi: e.target.checked
+                  }
+                }))
+              }
+            />
+            Neelibringadi Kera Thailam (Kottakal brand) - For scalp
+          </label>
 
           {/* Nithya Virechana */}
           <div className="regimen-item">
