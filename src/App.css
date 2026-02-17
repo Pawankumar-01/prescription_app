@@ -92,6 +92,21 @@
   margin-top: 14px;
 }
 
+/* Restore native calendar icon */
+.doctor-ui input[type="date"] {
+  appearance: auto;
+  -webkit-appearance: auto;
+  position: relative;
+}
+
+/* Make calendar icon visible in Chrome */
+.doctor-ui input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  display: block;
+  cursor: pointer;
+}
+
+
 /* ================= TABLES (FORM) ================= */
 
 .table-wrapper {
@@ -409,15 +424,13 @@
 
 /* ===== PAGE FOOTER (ECO NOTE) ===== */
 
-.print-root .page-footer {
-  position: absolute;
-  bottom: 6mm;
-  left: 10mm;
-  right: 10mm;
+.print-root .footer {
+  padding-top: 10px;
+  justify-content: center;
   text-align: center;
-  font-size: 12px;
+  font-size: 10px;
   font-style: italic;
-  color: #333;
+  color: #070707;
   pointer-events: none;
 }
 

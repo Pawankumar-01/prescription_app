@@ -384,6 +384,7 @@ export default function PrintableSheet({ data }) {
             <li>ప్రతి రోజు ఒక రకం సూప్ 2 గ్లాసులు</li>
           </ul>
           <hr />
+          <p className="footer">"Save trees, save the future and Write off paper—go electronic"- Think before printing.</p>
         </div>
       </div>
 
