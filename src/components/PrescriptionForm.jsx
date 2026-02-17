@@ -177,6 +177,9 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
         <div className="form-section">
           <div className="section-title">Daily Regimen</div>
 
+          {/* ================= INTERNAL DETOX ================= */}
+          <h4>Internal Detox</h4>
+
           {/* Fennel Water */}
           <div className="regimen-item">
             <label className="checkbox-row">
@@ -226,60 +229,74 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
               />
             )}
           </div>
-          {/* NEWLY ADDED CHECKBOXES (NO INPUT NEEDED) */}
+
+          {/* ================= OIL APPLICATIONS ================= */}
+          <hr />
+          <h4>Oil Applications</h4>
+
+          <div className="regimen-item">
+            <label className="checkbox-row">
+              <input
+                type="checkbox"
+                checked={data.regimen.bodyOils}
+                onChange={e =>
+                  setData(prev => ({
+                    ...prev,
+                    regimen: { ...prev.regimen, bodyOils: e.target.checked }
+                  }))
+                }
+              />
+              Body Oils - Apply all over the body daily
+            </label>
+
+            {data.regimen.bodyOils && (
+              <div className="sub-fields">
+                <input
+                  placeholder="Nutex Oil"
+                  value={data.nutexOil || ""}
+                  onChange={e => update("nutexOil", e.target.value)}
+                />
+                <input
+                  placeholder="Chandanadi Oil"
+                  value={data.chandanadiOil || ""}
+                  onChange={e => update("chandanadiOil", e.target.value)}
+                />
+              </div>
+            )}
+          </div>
 
           <label className="checkbox-row">
             <input
               type="checkbox"
-              checked={data.regimen?.nutexOil}
+              checked={data.regimen.skinOils}
               onChange={e =>
                 setData(prev => ({
                   ...prev,
-                  regimen: {
-                    ...prev.regimen,
-                    nutexOil: e.target.checked
-                  }
+                  regimen: { ...prev.regimen, skinOils: e.target.checked }
                 }))
               }
             />
-            Nutex oil + Chandanadi Thailam - Apply all over body daily
+            Skin Oils - Apply on affected areas daily
           </label>
 
           <label className="checkbox-row">
             <input
               type="checkbox"
-              checked={data.regimen?.skinOils}
+              checked={data.regimen.neelibringadi}
               onChange={e =>
                 setData(prev => ({
                   ...prev,
-                  regimen: {
-                    ...prev.regimen,
-                    skinOils: e.target.checked
-                  }
+                  regimen: { ...prev.regimen, neelibringadi: e.target.checked }
                 }))
               }
             />
-            Skin Oils - On Affected areas, Daily
+            Scalp Oil: Neelibringadi Kera Tailam (Kottakal brand)
           </label>
 
-          <label className="checkbox-row">
-            <input
-              type="checkbox"
-              checked={data.regimen?.neelibringadi}
-              onChange={e =>
-                setData(prev => ({
-                  ...prev,
-                  regimen: {
-                    ...prev.regimen,
-                    neelibringadi: e.target.checked
-                  }
-                }))
-              }
-            />
-            Neelibringadi Kera Thailam (Kottakal brand) - For scalp
-          </label>
+          {/* ================= VIRECHANA ================= */}
+          <hr />
+          <h4>Virechana Therapy</h4>
 
-          {/* Nithya Virechana */}
           <div className="regimen-item">
             <label className="checkbox-row">
               <input
@@ -287,7 +304,6 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
                 checked={data.regimen.nithyaVirechana}
                 onChange={e => {
                   const checked = e.target.checked;
-
                   setData(prev => ({
                     ...prev,
                     regimen: {
@@ -306,17 +322,19 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
 
             {data.regimen.nithyaVirechana && (
               <div className="sub-fields">
-                {["warmWater", "lemon", "blackSalt", "castorOil"].map(key => (
+                {[
+                  ["warmWater", "Warm Water"],
+                  ["lemon", "Lemon"],
+                  ["blackSalt", "Black Salt"],
+                  ["castorOil", "Castor Oil"]
+                ].map(([key, label]) => (
                   <div key={key}>
                     <label className="checkbox-row">
                       <input type="checkbox" checked readOnly />
-                      {key === "warmWater" && "Warm Water"}
-                      {key === "lemon" && "Lemon"}
-                      {key === "blackSalt" && "Black Salt"}
-                      {key === "castorOil" && "Castor Oil"}
+                      {label}
                     </label>
                     <input
-                      placeholder={key}
+                      placeholder={label}
                       value={data[key]}
                       onChange={e => update(key, e.target.value)}
                     />
@@ -326,73 +344,65 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
             )}
           </div>
 
-          {/* Prativaara */}
-          <div className="regimen-item">
-            <label className="checkbox-row">
-              <input
-                type="checkbox"
-                checked={data.regimen.prativaaraVirechana}
-                onChange={e =>
-                  setData(prev => ({
-                    ...prev,
-                    regimen: { ...prev.regimen, prativaaraVirechana: e.target.checked }
-                  }))
-                }
-              />
-              Prativaara Virechana Karma - once in a week
-            </label>
-          </div>
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen.prativaaraVirechana}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: { ...prev.regimen, prativaaraVirechana: e.target.checked }
+                }))
+              }
+            />
+            Prativaara Virechana Karma - once in a week
+          </label>
 
-          {/* Anutailam */}
-          <div className="regimen-item">
-            <label className="checkbox-row">
-              <input
-                type="checkbox"
-                checked={data.regimen.anutailam}
-                onChange={e =>
-                  setData(prev => ({
-                    ...prev,
-                    regimen: { ...prev.regimen, anutailam: e.target.checked }
-                  }))
-                }
-              />
-              Anutailam (2 drops in each nostril and ears)
-            </label>
-          </div>
+          {/* ================= HOME REMEDIES ================= */}
+          <hr />
+          <h4>Other Home Remedies</h4>
 
-          {/* Gandusham */}
-          <div className="regimen-item">
-            <label className="checkbox-row">
-              <input
-                type="checkbox"
-                checked={data.regimen.gandusham}
-                onChange={e =>
-                  setData(prev => ({
-                    ...prev,
-                    regimen: { ...prev.regimen, gandusham: e.target.checked }
-                  }))
-                }
-              />
-              Gandusham (With 30ml sesame oil)
-            </label>
-          </div>
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen.anutailam}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: { ...prev.regimen, anutailam: e.target.checked }
+                }))
+              }
+            />
+            Anutailam (2 drops in each nostril and ear)
+          </label>
 
-          {/* Steam */}
-          <div className="regimen-item">
-            <label className="checkbox-row">
-              <input
-                type="checkbox"
-                checked={data.regimen.steam}
-                onChange={e =>
-                  setData(prev => ({
-                    ...prev,
-                    regimen: { ...prev.regimen, steam: e.target.checked }
-                  }))
-                }
-              />
-              Steam (Boil water + zandu balm + turmeric + ghee)
-            </label>
-          </div>
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen.gandusham}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: { ...prev.regimen, gandusham: e.target.checked }
+                }))
+              }
+            />
+            Gandusham (Oil pulling with 30ml Sesame oil)
+          </label>
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen.steam}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: { ...prev.regimen, steam: e.target.checked }
+                }))
+              }
+            />
+            Steam Inhalations (Water + Zandubalm + Turmeric + Ghee)
+          </label>
 
           {/* Coriander Milk */}
           <div className="regimen-item">
@@ -453,7 +463,53 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
             )}
           </div>
 
-          {/* Other */}
+          {/* ================= BREATHING ================= */}
+          <hr />
+          <h4>Breathing Exercises</h4>
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen.dnb}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: { ...prev.regimen, dnb: e.target.checked }
+                }))
+              }
+            />
+            DNB (Left → Hold → Right in 1:4:2 ratio)
+          </label>
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen.rdnb}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: { ...prev.regimen, rdnb: e.target.checked }
+                }))
+              }
+            />
+            RDNB (Right → Hold → Left in 1:4:2 ratio)
+          </label>
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen.pranayama}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: { ...prev.regimen, pranayama: e.target.checked }
+                }))
+              }
+            />
+            Pranayama
+          </label>
+
+          {/* ================= OTHER ================= */}
           <div className="regimen-item">
             <label className="checkbox-row">
               <input
@@ -479,6 +535,7 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
           </div>
 
         </div>
+
 
 
 

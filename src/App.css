@@ -145,10 +145,33 @@
 
 .print-root .box-content {
   white-space: pre-wrap;
-  word-break: break-word;
-  font-size: 10px;    /* slightly smaller */
-  max-height: 25mm;   /* reduced from 40mm */
-  overflow: hidden;
+  font-size: 11px;
+  padding: 2mm 0;
+}
+
+/* ===== DAILY REGIMEN COMPACT MODE ===== */
+
+.print-root .regimen-grid {
+  font-size: 12px;          /* reduced from default 11–12 */
+  line-height: 1.8;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6mm;
+  margin-top: 4mm;         /* tighter spacing */
+}
+
+.print-root .regimen-grid p {
+  margin: 1.5mm 0;          /* reduce vertical gaps */
+}
+
+.print-root .regimen-grid h4 {
+  font-size: 15px;        /* slightly smaller section title */
+  margin: 2mm 0 1mm 0;
+}
+
+.print-root .regimen-grid .fill {
+  height: 4.5mm;            /* reduce underline height */
+  min-width: 28mm;          /* slightly smaller line */
 }
 
 
@@ -184,9 +207,14 @@
    ========================================================= */
 
 .print-root {
-  font-family: "Times New Roman", serif;
+  font-family: "Poppins", serif;
   color: #000;
 }
+
+.print-root .instructions {
+  padding-top: 4mm !important;  /* reduce from 10mm */
+}
+
 
 /* PAGE */
 .print-root .page {
@@ -387,7 +415,7 @@
   left: 10mm;
   right: 10mm;
   text-align: center;
-  font-size: 9px;
+  font-size: 12px;
   font-style: italic;
   color: #333;
   pointer-events: none;

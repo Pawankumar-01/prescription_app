@@ -119,22 +119,34 @@ export default function PrintableSheet({ data }) {
             </tbody>
           </table>
 
-          {/* ALLOPATHY */}
-          <div className="box" style={{ marginTop: "4mm" }}>
-            <div className="box-title">Allopathy Medicines Prescribed</div>
-            <div className="box-content">{data.allopathyMedicines}</div>
-          </div>
+          {/* BOXES WRAPPER */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gap: "4mm",
+              marginTop: "4mm"
+            }}
+          >
 
-          {/* PANCHAKARMA */}
-          <div className="box" style={{ marginTop: "4mm" }}>
-            <div className="box-title">Panchakarma</div>
-            <div className="box-content">{data.panchakarma}</div>
-          </div>
+            {/* ALLOPATHY */}
+            <div className="box">
+              <div className="box-title">Allopathy Medicines Prescribed</div>
+              <div className="box-content">{data.allopathyMedicines}</div>
+            </div>
 
-          {/* TEST */}
-          <div className="box" style={{ marginTop: "4mm" }}>
-            <div className="box-title">Test To Be Done</div>
-            <div className="box-content">{data.testsToBeDone}</div>
+            {/* PANCHAKARMA */}
+            <div className="box">
+              <div className="box-title">Panchakarma</div>
+              <div className="box-content">{data.panchakarma}</div>
+            </div>
+
+            {/* TEST */}
+            <div className="box">
+              <div className="box-title">Test To Be Done</div>
+              <div className="box-content">{data.testsToBeDone}</div>
+            </div>
+
           </div>
 
         </div>
@@ -144,86 +156,117 @@ export default function PrintableSheet({ data }) {
       {/* ================= PAGE 2 ================= */}
       <div className="page a4 page-break">
 
-        {/* ================= REGIMEN ================= */}
+        {/* ================= DAILY REGIMEN ================= */}
         <h3>DAILY REGIMEN</h3>
 
-        <div className="bullets">
+        <div className="regimen-grid">
 
-          {data.regimen?.fennelWater && (
-            <p>o Fennel Water <span className="fill">{data.fennelWater}</span> / per day - Daily</p>
-          )}
+          {/* ================= OILS COLUMN ================= */}
+          <div>
 
-          {data.regimen?.soups && (
-            <p>o Soups <span className="fill">{data.soups}</span> / per day - Daily</p>
-          )}
+            <h4>✤ Oil Applications</h4>
 
-          {data.regimen?.nutexOil && (
-            <p>o Nutex oil + Chandanadi Thailam - Apply all over body daily</p>
-          )}
+            {data.regimen?.bodyOils && (
+              <p>
+                ‣ Body Oils – Apply daily
+                <br />
+                ◦ Nutex Oil <span className="fill">{data.nutexOil}</span>
+                <br />
+                ◦ Chandanadi Oil <span className="fill">{data.chandanadiOil}</span>
+              </p>
+            )}
 
-          {data.regimen?.skinOils && (
-            <p>o Skin Oils - On Affected areas, Daily</p>
-          )}
+            {data.regimen?.skinOils && (
+              <p>‣ Skin Oils – Apply on affected areas daily</p>
+            )}
 
-          {data.regimen?.neelibringadi && (
-            <p>o Neelibringadi Kera Thailam (Kottakal brand) - For scalp</p>
-          )}
+            {data.regimen?.neelibringadi && (
+              <p>‣ Scalp Oil – Neelibringadi Kera Tailam</p>
+            )}
 
-          {data.regimen?.nithyaVirechana && (
-            <p><b>o Nithya Virechana Karma - 7 days</b></p>
-          )}
+            {data.regimen?.anutailam && (
+              <p>‣ Anutailam (2 drops each nostril & ear)</p>
+            )}
 
-          {data.regimen?.warmWater && (
-            <p>Warm Water <span className="fill">{data.warmWater}</span></p>
-          )}
+            {data.regimen?.gandusham && (
+              <p>‣ Gandusham (30ml Sesame oil)</p>
+            )}
 
-          {data.regimen?.lemon && (
-            <p>Lemon <span className="fill">{data.lemon}</span></p>
-          )}
+            {data.regimen?.steam && (
+              <p>‣ Steam (Water + Zandubalm + Turmeric + Ghee)</p>
+            )}
 
-          {data.regimen?.blackSalt && (
-            <p>Black Salt <span className="fill">{data.blackSalt}</span></p>
-          )}
+            <h4>✤ Breathing Exercises</h4>
 
-          {data.regimen?.castorOil && (
-            <p>Castor Oil <span className="fill">{data.castorOil}</span></p>
-          )}
+            {data.regimen?.dnb && (
+              <p>‣ DNB (Left → Hold → Right | 1:4:2)</p>
+            )}
 
-          {data.regimen?.prativaaraVirechana && (
-            <p>o Prativaara Virechana Karma - once in a week</p>
-          )}
+            {data.regimen?.rdnb && (
+              <p>‣ RDNB (Right → Hold → Left | 1:4:2)</p>
+            )}
 
-          {data.regimen?.anutailam && (
-            <p>o Anutailam (2 drops in each nostril and ears)</p>
-          )}
+            {data.regimen?.pranayama && (
+              <p>‣ Pranayama</p>
+            )}
 
-          {data.regimen?.gandusham && (
-            <p>o Gandusham (With 30ml sesame oil)</p>
-          )}
-
-          {data.regimen?.steam && (
-            <p>o Steam (Boil water + zandu balm + turmeric + ghee)</p>
-          )}
-
-          {data.regimen?.corianderMilk && (
-            <p>
-              o Coriander Milk
-              {data.regimen.withGinger && " (With Ginger)"}
-              {data.regimen.withoutGinger && " (Without Ginger)"}
-              {!data.regimen.withGinger && !data.regimen.withoutGinger && ""}
-            </p>
-          )}
-          {data.regimen?.other && data.otherNote && (
-            <p>
-              o Other: {data.otherNote}
-            </p>
-          )}
+            {data.regimen?.other && data.otherNote && (
+              <p>‣ Other: {data.otherNote}</p>
+            )}
 
 
+          </div>
+
+          {/* ================= DETOX + REMEDIES + BREATHING ================= */}
+          <div>
+
+            <h4>✤ Internal Detox</h4>
+
+            {data.regimen?.fennelWater && (
+              <p>
+                ‣ Fennel Water
+                <span className="fill">{data.fennelWater}</span>
+              </p>
+            )}
+
+            {data.regimen?.soups && (
+              <p>
+                ‣ Soups
+                <span className="fill">{data.soups}</span>
+              </p>
+            )}
+
+            {data.regimen?.nithyaVirechana && (
+              <>
+                <p><b>‣ Nithya Virechana – 7 days</b></p>
+                <p>
+                  ◦ Warm Water <span className="fill">{data.warmWater}</span><br />
+                  ◦ Lemon <span className="fill">{data.lemon}</span><br />
+                  ◦ Black Salt <span className="fill">{data.blackSalt}</span><br />
+                  ◦ Castor Oil <span className="fill">{data.castorOil}</span>
+                </p>
+              </>
+            )}
+
+            {data.regimen?.prativaaraVirechana && (
+              <p>‣ Prativaara Virechana – Once weekly</p>
+            )}
+
+            
+            {data.regimen?.corianderMilk && (
+              <p>
+                ‣ Coriander Milk
+                {data.regimen.withGinger && " (With Ginger)"}
+                {data.regimen.withoutGinger && " (Without Ginger)"}
+              </p>
+            )}
+
+          </div>
 
         </div>
 
         <hr style={{ margin: "6mm 0" }} />
+
 
       
 
@@ -233,9 +276,9 @@ export default function PrintableSheet({ data }) {
       {/* ================= PAGE 2 ================= */}
       <div className="page a4 page-break instructions">
 
-        <div style={{ fontSize: "10px", lineHeight: "1.3" }}>
+        <div style={{ fontSize: "10px", lineHeight: "1.3" ,}}>
 
-          <h3 style={{ marginBottom: "4mm" }}>
+          <h3 style={{ marginTop:"0",marginBottom: "4mm" }}>
             INSTRUCTIONS / సూచనలు:
           </h3>
 
@@ -304,29 +347,29 @@ export default function PrintableSheet({ data }) {
           >
 
             {/* LEFT SIDE — ENGLISH BULLETS */}
-            <ul style={{ margin: "2mm 0", paddingLeft: "16px", fontSize: "10.5px", lineHeight: "1.5" }}>
+            <ul style={{ margin: "2mm 0", paddingLeft: "16px", fontSize: "10.5px", lineHeight: "1.2" }}>
               <li>Medicines should be taken twice a day</li>
               <li>Timing: 6:00 AM to 8:00 AM and 6:00 PM to 8:00 PM</li>
               <li>Give 5–10 mins gap for each supplement</li>
               <li>Tablet forms can be taken directly with water</li>
-              <li>Avoid CCRSTT foods</li>
+              <li>Avoid CCRSTT (Cabbage, Cauliflower, Radish, Spinach, Tomato, tamarind) foods</li>
               <li>5 cashew, 5 almonds, soaked groundnuts daily</li>
               <li>2 liters fennel water daily</li>
               <li>One type of soup – 2 glasses daily</li>
             </ul>
 
             {/* RIGHT SIDE — DIET REFERENCE */}
-            <div style={{ fontSize: "10px", lineHeight: "1.5" }}>
-              <b>Diet Reference / ఆహార సూచనలు</b>
+            <ul style={{ margin: "2mm 0", fontSize: "10.5px", lineHeight: "1.2" }}>
+              <li><b>Diet Reference / ఆహార సూచనలు</b></li>
 
-              <p>Fennel Water – (All diets) / సొంపు నీరు – (అన్ని)</p>
-              <p>Biyyam – (Pitha & Vata) / బియ్యం – (పిత్త & వాత)</p>
-              <p>Barley – (Pitha & Vata) / బార్లీ – (పిత్త & వాత)</p>
-              <p>Saggubiyyam – (Pitha) / సగ్గుబియ్యం – (పిత్త)</p>
-              <p>Jonna – (Kapha / PAD) / జొన్న – (కఫ / PAD)</p>
-              <p>Ragi – (Kapha / PAD) / రాగి – (కఫ / PAD)</p>
-              <p>Cabbage – (Pitha & Vata) / క్యాబేజీ – (పిత్త & వాత)</p>
-            </div>
+              <li>Fennel Water – (All diets) / సొంపు నీరు – (అన్ని)</li>
+              <li>Biyyam – (Pitha & Vata) / బియ్యం – (పిత్త & వాత)</li>
+              <li>Barley – (Pitha & Vata) / బార్లీ – (పిత్త & వాత)</li>
+              <li>Saggubiyyam – (Pitha) / సగ్గుబియ్యం – (పిత్త)</li>
+              <li>Jonna – (Kapha / PAD) / జొన్న – (కఫ / PAD)</li>
+              <li>Ragi – (Kapha / PAD) / రాగి – (కఫ / PAD)</li>
+              <li>Cabbage – (Pitha & Vata) / క్యాబేజీ – (పిత్త & వాత)</li>
+            </ul>
 
           </div>
 
@@ -335,7 +378,7 @@ export default function PrintableSheet({ data }) {
             <li>సమయం: ఉదయం 6–8 మరియు సాయంత్రం 6–8</li>
             <li>ప్రతి సప్లిమెంట్‌కు 5–10 నిమిషాల గ్యాప్ ఇవ్వండి</li>
             <li>మాత్రలు నేరుగా నీటితో తీసుకోవచ్చు</li>
-            <li>CCRSTT ఆహారాలు తీసుకోకూడదు</li>
+            <li>CCRSTT (క్యాబేజీ, క్యాలీఫ్లవర్, ముల్లంగి, పాలకూర, టమోటా, చింతపండు) ఆహారాలు తీసుకోకూడదు</li>
             <li>ప్రతి రోజు 5 జీడిపప్పు, 5 బాదంపప్పు</li>
             <li>ప్రతి రోజు 2 లీటర్లు ఫెన్నెల్ వాటర్</li>
             <li>ప్రతి రోజు ఒక రకం సూప్ 2 గ్లాసులు</li>

@@ -7,7 +7,7 @@ export default function App() {
   const [printMode, setPrintMode] = useState(false);
 
   const [data, setData] = useState({
-  // Patient
+  // ================= PATIENT =================
   patientName: "",
   age: "",
   weight: "",
@@ -17,7 +17,7 @@ export default function App() {
   followUpDoctor: "",
   phone: "",
 
-  // Supplements
+  // ================= SUPPLEMENTS =================
   supplements: Array.from({ length: 12 }, (_, i) => ({
     sno: i + 1,
     name: "",
@@ -25,49 +25,63 @@ export default function App() {
     weeks: Array(8).fill("")
   })),
 
-  // Daily regimen values
+  // ================= DAILY REGIMEN VALUES =================
   fennelWater: "",
   soups: "",
 
-  // Virechana values
+  // Body oils values
+  nutexOil: "",
+  chandanadiOil: "",
+
+  // Nithya values
   warmWater: "",
   lemon: "",
   blackSalt: "",
   castorOil: "",
 
-  // ✅ NEW — Regimen toggles
+  // ================= REGIMEN TOGGLES =================
   regimen: {
-  fennelWater: false,
-  soups: false,
-  nutexOil: false,
-  skinOils: false,
-  neelibringadi: false,
-  nithyaVirechana: false,
-  warmWaterLemon: false,
-  blackSalt: false,
-  castorOil: false,
-  prativaaraVirechana: false,
-  anutailam: false,
-  gandusham: false,
-  steam: false,
-  corianderMilk: false,
-  withGinger: false,
-  withoutGinger: false,
+    // Detox
+    fennelWater: false,
+    soups: false,
+    nithyaVirechana: false,
+    prativaaraVirechana: false,
 
-},
+    // Oils
+    bodyOils: false,
+    skinOils: false,
+    neelibringadi: false,
 
+    // Remedies
+    anutailam: false,
+    gandusham: false,
+    steam: false,
+    corianderMilk: false,
 
-  // Other note
+    // Coriander options
+    withGinger: false,
+    withoutGinger: false,
+
+    // Breathing
+    dnb: false,
+    rdnb: false,
+    pranayama: false,
+
+    // Other
+    other: false
+  },
+
+  // ================= NOTES =================
   otherNote: "",
 
-  // Diet table
+  // ================= DIET TABLE =================
   diets: Array.from({ length: 5 }, (_, i) => ({
     sno: i + 1,
     diet: "",
     weeks: ""
   })),
 
-  // Bottom boxes
+  // ================= BOTTOM BOXES =================
   panchakarma: "",
   allopathyMedicines: "",
   testsToBeDone: ""
