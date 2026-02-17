@@ -19,11 +19,12 @@ export default function App() {
 
   // ================= SUPPLEMENTS =================
   supplements: Array.from({ length: 12 }, (_, i) => ({
-    sno: i + 1,
-    name: "",
-    quantity: "",
-    weeks: Array(8).fill("")
-  })),
+  sno: i + 1,
+  name: "",
+  quantity: "1000mg",   // ✅ default
+  weeks: Array(8).fill("")
+})),
+
 
   // ================= DAILY REGIMEN VALUES =================
   fennelWater: "",

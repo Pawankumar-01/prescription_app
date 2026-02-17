@@ -24,21 +24,106 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
   const update = (key, value) =>
     setData(prev => ({ ...prev, [key]: value }));
 
-  const updateSupplement = (row, col, value) => {
-  const copy = [...data.supplements];
+  const parseFraction = (value) => {
+  if (!value) return null;
 
-  if (col === "name") {
-    copy[row].name = value;
-  } 
-  else if (col === "quantity") {
-    copy[row].quantity = value;
-  } 
+  value = value.trim();
+
+  // Mixed fraction (e.g., "1 1/2")
+  if (value.includes(" ")) {
+    const [whole, fraction] = value.split(" ");
+    const [num, den] = fraction.split("/").map(Number);
+    return Number(whole) + num / den;
+  }
+
+  // Simple fraction (e.g., "1/2")
+  if (value.includes("/")) {
+    const [num, den] = value.split("/").map(Number);
+    return num / den;
+  }
+
+  // Whole number
+  return Number(value);
+};
+
+const toFraction = (decimal) => {
+  if (decimal === 0) return "0";
+
+  // If whole number
+  if (Number.isInteger(decimal)) {
+    return decimal.toString();
+  }
+
+  const tolerance = 1.0E-6;
+  let numerator = 1;
+  let denominator = 1;
+
+  while (Math.abs(numerator / denominator - decimal) > tolerance) {
+    if (numerator / denominator < decimal) numerator++;
+    else denominator++;
+  }
+
+  // Simplify fraction
+  const gcd = (a, b) => b ? gcd(b, a % b) : a;
+  const divisor = gcd(numerator, denominator);
+
+  numerator /= divisor;
+  denominator /= divisor;
+
+  // Mixed number
+  if (numerator > denominator) {
+    const whole = Math.floor(numerator / denominator);
+    const remainder = numerator % denominator;
+
+    if (remainder === 0) return whole.toString();
+    return `${whole} ${remainder}/${denominator}`;
+  }
+
+  return `${numerator}/${denominator}`;
+};
+
+
+const updateSupplement = (rowIndex, col, value) => {
+  const copy = [...data.supplements];
+  const currentRow = copy[rowIndex];
+
+  // Quantity changed
+  if (col === "quantity") {
+    const previousQty = currentRow.quantity;
+    currentRow.quantity = value;
+
+    if (
+      (previousQty === "1000mg" && value === "500mg") ||
+      (previousQty === "500mg" && value === "1000mg")
+    ) {
+      const multiplier =
+        previousQty === "1000mg" && value === "500mg"
+          ? 2
+          : 0.5;
+
+      currentRow.weeks = currentRow.weeks.map(w => {
+        if (!w) return "";
+
+        const numeric = parseFraction(w);
+        if (numeric === null || isNaN(numeric)) return w;
+
+        const scaled = numeric * multiplier;
+        return toFraction(scaled);
+      });
+    }
+  }
+
+  else if (col === "name") {
+    currentRow.name = value;
+  }
+
   else {
-    copy[row].weeks[col] = value;
+    currentRow.weeks[col] = value;
   }
 
   update("supplements", copy);
 };
+
 
   
 
@@ -147,6 +232,8 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
                         <option value="">Select</option>
                         <option value="500mg">500mg</option>
                         <option value="1000mg">1000mg</option>
+                        <option value="60 Tablets">60 Tablets</option>
+
                       </select>
                     </td>
 

@@ -164,101 +164,101 @@ export default function PrintableSheet({ data }) {
           {/* ================= OILS COLUMN ================= */}
           <div>
 
-            <h4>✤ Oil Applications</h4>
+            <h4>Oil Applications</h4>
 
             {data.regimen?.bodyOils && (
               <p>
-                ‣ Body Oils – Apply daily
+                o Body Oils – Apply daily
                 <br />
-                ◦ Nutex Oil <span className="fill">{data.nutexOil}</span>
+                Nutex Oil <span className="fill">{data.nutexOil}</span>
                 <br />
-                ◦ Chandanadi Oil <span className="fill">{data.chandanadiOil}</span>
+                Chandanadi Oil <span className="fill">{data.chandanadiOil}</span>
               </p>
             )}
 
             {data.regimen?.skinOils && (
-              <p>‣ Skin Oils – Apply on affected areas daily</p>
+              <p>o Skin Oils – Apply on affected areas daily</p>
             )}
 
             {data.regimen?.neelibringadi && (
-              <p>‣ Scalp Oil – Neelibringadi Kera Tailam</p>
+              <p>o Scalp Oil – Neelibringadi Kera Tailam</p>
             )}
+            <h4>Home Remedies</h4>
 
             {data.regimen?.anutailam && (
-              <p>‣ Anutailam (2 drops each nostril & ear)</p>
+              <p>o Anutailam (2 drops each nostril & ear)</p>
             )}
 
             {data.regimen?.gandusham && (
-              <p>‣ Gandusham (30ml Sesame oil)</p>
+              <p>o Gandusham (30ml Sesame oil)</p>
             )}
 
             {data.regimen?.steam && (
-              <p>‣ Steam (Water + Zandubalm + Turmeric + Ghee)</p>
+              <p>o Steam (Water + Zandubalm + Turmeric + Ghee)</p>
             )}
 
-            <h4>✤ Breathing Exercises</h4>
-
-            {data.regimen?.dnb && (
-              <p>‣ DNB (Left → Hold → Right | 1:4:2)</p>
+            {data.regimen?.corianderMilk && (
+              <p>
+                o Coriander Milk
+                {data.regimen.withGinger && " (With Ginger)"}
+                {data.regimen.withoutGinger && " (Without Ginger)"}
+              </p>
             )}
-
-            {data.regimen?.rdnb && (
-              <p>‣ RDNB (Right → Hold → Left | 1:4:2)</p>
-            )}
-
-            {data.regimen?.pranayama && (
-              <p>‣ Pranayama</p>
-            )}
-
-            {data.regimen?.other && data.otherNote && (
-              <p>‣ Other: {data.otherNote}</p>
-            )}
-
-
           </div>
 
           {/* ================= DETOX + REMEDIES + BREATHING ================= */}
           <div>
 
-            <h4>✤ Internal Detox</h4>
+            <h4>Detox Procedures</h4>
 
             {data.regimen?.fennelWater && (
               <p>
-                ‣ Fennel Water
+                o Fennel Water
                 <span className="fill">{data.fennelWater}</span>
               </p>
             )}
 
             {data.regimen?.soups && (
               <p>
-                ‣ Soups
+                o Soups
                 <span className="fill">{data.soups}</span>
               </p>
             )}
 
             {data.regimen?.nithyaVirechana && (
               <>
-                <p><b>‣ Nithya Virechana – 7 days</b></p>
+                <p><b>o Nithya Virechana – 7 days</b></p>
                 <p>
-                  ◦ Warm Water <span className="fill">{data.warmWater}</span><br />
-                  ◦ Lemon <span className="fill">{data.lemon}</span><br />
-                  ◦ Black Salt <span className="fill">{data.blackSalt}</span><br />
-                  ◦ Castor Oil <span className="fill">{data.castorOil}</span>
+                  Warm Water <span className="fill">{data.warmWater}</span><br />
+                  Lemon <span className="fill">{data.lemon}</span><br />
+                  Black Salt <span className="fill">{data.blackSalt}</span><br />
+                  Castor Oil <span className="fill">{data.castorOil}</span>
                 </p>
               </>
             )}
 
             {data.regimen?.prativaaraVirechana && (
-              <p>‣ Prativaara Virechana – Once weekly</p>
+              <p>o Prativaara Virechana – Once weekly</p>
             )}
 
             
-            {data.regimen?.corianderMilk && (
-              <p>
-                ‣ Coriander Milk
-                {data.regimen.withGinger && " (With Ginger)"}
-                {data.regimen.withoutGinger && " (Without Ginger)"}
-              </p>
+
+            <h4>Breathing Exercises</h4>
+
+            {data.regimen?.dnb && (
+              <p>o DNB (Left → Hold → Right | 1:4:2)</p>
+            )}
+
+            {data.regimen?.rdnb && (
+              <p>o RDNB (Right → Hold → Left | 1:4:2)</p>
+            )}
+
+            {data.regimen?.pranayama && (
+              <p>o Pranayama</p>
+            )}
+
+            {data.regimen?.other && data.otherNote && (
+              <p>o Other: {data.otherNote}</p>
             )}
 
           </div>
