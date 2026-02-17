@@ -365,7 +365,7 @@ export default function PrintableSheet({ data }) {
               <li>Fennel Water – (All diets) / సొంపు నీరు – (అన్ని)</li>
               <li>Biyyam – (Pitha & Vata) / బియ్యం – (పిత్త & వాత)</li>
               <li>Barley – (Pitha & Vata) / బార్లీ – (పిత్త & వాత)</li>
-              <li>Saggubiyyam – (Pitha) / సగ్గుబియ్యం – (పిత్త)</li>
+              <li>Saggubiyyam – (Pitha & Vata) / బార్లీ – (పిత్త & వాత)</li>
               <li>Jonna – (Kapha / PAD) / జొన్న – (కఫ / PAD)</li>
               <li>Ragi – (Kapha / PAD) / రాగి – (కఫ / PAD)</li>
               <li>Cabbage – (Pitha & Vata) / క్యాబేజీ – (పిత్త & వాత)</li>
