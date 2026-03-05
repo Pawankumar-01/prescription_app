@@ -123,7 +123,7 @@ export default function PrintableSheet({ data }) {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr",
+              gridTemplateColumns: "1fr 1fr 1fr 1fr",
               gap: "4mm",
               marginTop: "4mm"
             }}
@@ -145,6 +145,12 @@ export default function PrintableSheet({ data }) {
             <div className="box">
               <div className="box-title">Test To Be Done</div>
               <div className="box-content">{data.testsToBeDone}</div>
+            </div>
+            
+            {/* OTHERS */}
+            <div className="box">
+              <div className="box-title">Others</div>
+              <div className="box-content">{data.otherNote}</div>
             </div>
 
           </div>

@@ -49,28 +49,24 @@ export default function PrescriptionForm({ data, setData, onPrint }) {
 const toFraction = (decimal) => {
   if (decimal === 0) return "0";
 
-  // If whole number
+  // Whole number
   if (Number.isInteger(decimal)) {
     return decimal.toString();
   }
 
-  const tolerance = 1.0E-6;
-  let numerator = 1;
-  let denominator = 1;
+  // Convert decimal to fraction using rational approximation
+  const precision = 1000; // supports up to 3 decimal precision
+  let numerator = Math.round(decimal * precision);
+  let denominator = precision;
 
-  while (Math.abs(numerator / denominator - decimal) > tolerance) {
-    if (numerator / denominator < decimal) numerator++;
-    else denominator++;
-  }
-
-  // Simplify fraction
-  const gcd = (a, b) => b ? gcd(b, a % b) : a;
+  // Simplify using GCD
+  const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
   const divisor = gcd(numerator, denominator);
 
   numerator /= divisor;
   denominator /= divisor;
 
-  // Mixed number
+  // Convert to mixed number if needed
   if (numerator > denominator) {
     const whole = Math.floor(numerator / denominator);
     const remainder = numerator % denominator;
@@ -81,7 +77,6 @@ const toFraction = (decimal) => {
 
   return `${numerator}/${denominator}`;
 };
-
 
 const updateSupplement = (rowIndex, col, value) => {
   const copy = [...data.supplements];
