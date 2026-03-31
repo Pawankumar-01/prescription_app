@@ -359,7 +359,7 @@ export default function PrintableSheet({ data }) {
               <li>Give 5–10 mins gap for each supplement</li>
               <li>Tablet forms can be taken directly with water</li>
               <li>Avoid CCRSTT (Cabbage, Cauliflower, Radish, Spinach, Tomato, tamarind) foods</li>
-              <li>5 cashew, 5 almonds, soaked groundnuts daily</li>
+              <li>5 cashew, 5 almonds, soaked groundnuts (2 tablespoons)  daily</li>
               <li>2 liters fennel water daily</li>
               <li>One type of soup – 2 glasses daily</li>
             </ul>
@@ -385,7 +385,7 @@ export default function PrintableSheet({ data }) {
             <li>ప్రతి సప్లిమెంట్‌కు 5–10 నిమిషాల గ్యాప్ ఇవ్వండి</li>
             <li>మాత్రలు నేరుగా నీటితో తీసుకోవచ్చు</li>
             <li>CCRSTT (క్యాబేజీ, క్యాలీఫ్లవర్, ముల్లంగి, పాలకూర, టమోటా, చింతపండు) ఆహారాలు తీసుకోకూడదు</li>
-            <li>ప్రతి రోజు 5 జీడిపప్పు, 5 బాదంపప్పు</li>
+            <li>ప్రతి రోజు 5 జీడిపప్పు, 5 బాదంపప్పు, 2 టేబుల్ స్పూన్ల వేరుశెనగ</li>
             <li>ప్రతి రోజు 2 లీటర్లు ఫెన్నెల్ వాటర్</li>
             <li>ప్రతి రోజు ఒక రకం సూప్ 2 గ్లాసులు</li>
           </ul>
