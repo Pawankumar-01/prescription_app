@@ -7,7 +7,8 @@ export default function App() {
   const [printMode, setPrintMode] = useState(false);
 
   const [data, setData] = useState({
-  // ================= PATIENT =================
+  // ================= VPK ANALYSIS =================
+  vpkAnalysis: "",
   patientName: "",
   age: "",
   weight: "",

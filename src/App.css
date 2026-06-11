@@ -158,6 +158,16 @@
   padding: 2mm;
 }
 
+/* VPK Analysis box — full-width, compact */
+.print-root .vpk-box {
+  border: 1px solid #000;
+  padding: 2mm;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 3mm;
+  margin-bottom: 2mm;
+}
+
 .print-root .box-content {
   white-space: pre-wrap;
   font-size: 11px;
@@ -238,8 +248,8 @@
   padding: 10mm;
   box-sizing: border-box;
 
-  position: relative;      /* important */
-  overflow: hidden;        /* CRITICAL FIX */
+  position: relative;
+  overflow: hidden;
 }
 
 

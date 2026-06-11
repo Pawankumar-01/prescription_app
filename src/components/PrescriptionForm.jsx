@@ -185,6 +185,17 @@ const updateSupplement = (rowIndex, col, value) => {
 
         </div>
 
+        {/* ================= VPK ANALYSIS ================= */}
+        <div className="form-section">
+          <div className="section-title">VPK Analysis</div>
+          <textarea
+            placeholder={"Enter VPK analysis values"}
+            value={data.vpkAnalysis}
+            onChange={e => setData(prev => ({ ...prev, vpkAnalysis: e.target.value }))}
+            style={{ width: "100%", minHeight: "120px", boxSizing: "border-box" }}
+          />
+        </div>
+
         {/* ================= SUPPLEMENTS ================= */}
         <div className="form-section">
           <div className="section-title">Supplement Schedule (10 × 8 Weeks)</div>
