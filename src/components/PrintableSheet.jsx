@@ -1,4 +1,5 @@
 import logo from "../assets/sgp-logo.png";
+import ceoSignature from "../assets/ceo-signature.png";
 
 function resolveWeeks(weeks) {
   const resolved = [...weeks];
@@ -317,6 +318,28 @@ export default function PrintableSheet({ data }) {
           <li>ప్రతి రోజు 2 లీటర్లు ఫెన్నెల్ వాటర్</li>
           <li>ప్రతి రోజు ఒక రకం సూప్ 2 గ్లాసులు</li>
         </ul>
+        <hr />
+
+        {/* CEO SIGNATURE */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
+            marginTop: "4mm",
+            marginBottom: "2mm",
+            paddingRight: "8mm"
+          }}
+        >
+          <div style={{ textAlign: "center" }}>
+            <img
+              src={ceoSignature}
+              alt="CEO Signature"
+              style={{ height: "18mm", display: "block", marginBottom: "1mm" }}
+            />
+          </div>
+        </div>
+
         <hr />
 
         <p className="footer">
