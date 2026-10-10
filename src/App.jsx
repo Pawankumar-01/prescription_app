@@ -64,10 +64,14 @@ export default function App() {
     withGinger: false,
     withoutGinger: false,
 
-    // Breathing
+    // Exercises
     dnb: false,
     rdnb: false,
     pranayama: false,
+    handExercises: false,
+    legExercises: false,
+    naukasana: false,
+    suryanamaskaram: false,
 
     // Other
     other: false

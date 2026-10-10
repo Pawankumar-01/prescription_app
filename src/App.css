@@ -244,12 +244,12 @@
 /* PAGE */
 .print-root .page {
   width: 210mm;
-  height: 300mm;
+  min-height: 297mm;
   padding: 10mm;
   box-sizing: border-box;
 
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 
@@ -258,6 +258,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 4mm;
 }
 
 .print-root .logo {
@@ -265,8 +266,33 @@
 }
 
 .print-root .contact {
-  font-size: 11px;
+  font-size: 8px;
   text-align: right;
+  line-height: 1.45;
+  flex: 0 0 44mm;
+}
+
+.print-root .hospital-details {
+  flex: 1;
+  color: #55739b;
+  font-size: 7.5px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.print-root .hospital-name {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.print-root .hospital-links {
+  margin-top: 1mm;
+}
+
+.print-root .hospital-address {
+  color: #55739b;
 }
 
 /* PATIENT INFO */
@@ -390,6 +416,14 @@
   page-break-inside: avoid;
 }
 
+.print-root .header-row,
+.print-root .patient-info,
+.print-root .vpk-box,
+.print-root .regimen-grid {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
 .checkbox-row {
   color: #1f2d3d !important;
 }
@@ -416,16 +450,52 @@
    ========================================================= */
 @page {
   size: A4;
-  margin: 10mm;
+  margin: 0;
+}
+
+@media screen {
+  .print-root {
+    display: none;
+  }
 }
 
 @media print {
+  html,
   body {
     margin: 0;
+    width: 210mm;
+    min-width: 0;
+    min-height: 0;
+    display: block;
+    background: #fff;
   }
 
   .doctor-ui {
     display: none !important;
+  }
+
+  .print-root {
+    display: block;
+  }
+
+  .print-root .page {
+    width: 210mm;
+    min-height: 297mm;
+    height: auto;
+    padding: 10mm;
+    overflow: visible;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .print-root .page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .print-root .page-break {
+    break-before: auto;
+    page-break-before: auto;
   }
 
 }
@@ -442,6 +512,20 @@
   font-style: italic;
   color: #070707;
   pointer-events: none;
+}
+
+.print-root .doctor-credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35mm;
+  font-size: 7.5px;
+  line-height: 1.15;
+  color: #55739b;
+}
+
+.print-root .doctor-credentials strong {
+  color: #000;
+  font-size: 9px;
 }
 
 

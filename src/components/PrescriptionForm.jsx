@@ -556,9 +556,9 @@ const updateSupplement = (rowIndex, col, value) => {
             )}
           </div>
 
-          {/* ================= BREATHING ================= */}
+          {/* ================= EXERCISES ================= */}
           <hr />
-          <h4>Breathing Exercises</h4>
+          <h4>Exercises</h4>
 
           <label className="checkbox-row">
             <input
@@ -600,6 +600,62 @@ const updateSupplement = (rowIndex, col, value) => {
               }
             />
             Pranayama
+          </label>
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen.handExercises}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: { ...prev.regimen, handExercises: e.target.checked }
+                }))
+              }
+            />
+            Hand Exercises
+          </label>
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen.legExercises}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: { ...prev.regimen, legExercises: e.target.checked }
+                }))
+              }
+            />
+            Leg Exercises
+          </label>
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen.naukasana}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: { ...prev.regimen, naukasana: e.target.checked }
+                }))
+              }
+            />
+            Naukasana
+          </label>
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={data.regimen.suryanamaskaram}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  regimen: { ...prev.regimen, suryanamaskaram: e.target.checked }
+                }))
+              }
+            />
+            Suryanamaskaram
           </label>
 
           {/* ================= OTHER ================= */}

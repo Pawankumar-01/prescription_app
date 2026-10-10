@@ -27,8 +27,15 @@ export default function PrintableSheet({ data }) {
         <div className="header-row">
           <img src={logo} className="logo" alt="Sai Ganga Panakeia" />
 
-          <div className="contact">
-            <div>Appointment: 7331109988 / 6305853769</div>
+          <div className="hospital-details">
+            <div className="hospital-name">SAI GANGA PANAKEIA LIMITED</div>
+            <div>B-Block-01, Indu Fortune Fields The Annexe,</div>
+            <div>Beside Indu Villa's, 13th Phase Rd, Hyderabad, Telangana, India - 500085</div>
+            <div className="hospital-links">Website: https://www.saigangapanakeia.in &nbsp; care@sgprs.com</div>
+          </div>
+
+          <div className="contact hospital-address">
+            <div>Queries: 7331109988 / 6305853769</div>
             <div>Medicines: 9182140113</div>
             <div>Online Yoga Sessions: 9440539030</div>
             <div>Call Between 10am - 6pm</div>
@@ -228,7 +235,7 @@ export default function PrintableSheet({ data }) {
               <p>o Prativaara Virechana – Once weekly</p>
             )}
 
-            <h4>Breathing Exercises</h4>
+            <h4>Exercises</h4>
 
             {data.regimen?.dnb && (
               <p>o DNB (Left → Hold → Right | 1:4:2)</p>
@@ -240,6 +247,22 @@ export default function PrintableSheet({ data }) {
 
             {data.regimen?.pranayama && (
               <p>o Pranayama</p>
+            )}
+
+            {data.regimen?.handExercises && (
+              <p>o Hand Exercises</p>
+            )}
+
+            {data.regimen?.legExercises && (
+              <p>o Leg Exercises</p>
+            )}
+
+            {data.regimen?.naukasana && (
+              <p>o Naukasana</p>
+            )}
+
+            {data.regimen?.suryanamaskaram && (
+              <p>o Suryanamaskaram</p>
             )}
 
             {data.regimen?.other && data.otherNote && (
@@ -334,9 +357,20 @@ export default function PrintableSheet({ data }) {
           <div style={{ textAlign: "center" }}>
             <img
               src={ceoSignature}
-              alt="CEO Signature"
+              alt="Dr. Ravishankar Polisetty's signature"
               style={{ height: "18mm", display: "block", marginBottom: "1mm" }}
             />
+            <div className="doctor-credentials">
+              <strong>DR. RAVISHANKAR POLISETTY</strong>
+              <span>Ordinatura General, Lap and Laser Surgery</span>
+              <span>Ordinatura Cardiovascular Surgery</span>
+              <span>Aspirantura (PhD) Cardiovascular Surgery</span>
+              <span>ND Doctor of Naturopathic Medicine, India</span>
+              <span>MD Alternative Medicine, India</span>
+              <span>DNM Doctor in Natural Medicine, Canada and USA</span>
+              <span>DHS Doctorate in Humanitarian Sciences, Canada and USA</span>
+              <span>MCI Reg.No.: 16651</span>
+            </div>
           </div>
         </div>
 
